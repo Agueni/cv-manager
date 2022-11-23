@@ -4,11 +4,13 @@ package myboot.app1.service;
 import myboot.app1.dao.PersonRepository;
 import myboot.app1.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
 
 @RequestMapping("/")
+@Service
 public class Populate {
 
     @Autowired
