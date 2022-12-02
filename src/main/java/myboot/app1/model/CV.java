@@ -19,14 +19,18 @@ public class CV {
     private int id;
 
 
-
-
    //@ElementCollection(fetch = FetchType.EAGER)
    @OneToMany(fetch=FetchType.EAGER)
    private List<Activity> activities = new ArrayList<>();
 
+    @OneToOne(targetEntity=Person.class)
+    @JoinColumn(name="person_cv")
+    Person person;
 
+    public CV(List<Activity> activities, Person person) {
 
-
+        this.activities = activities;
+        this.person=person;
+    }
 
 }
