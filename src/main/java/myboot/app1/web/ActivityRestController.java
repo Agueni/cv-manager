@@ -7,10 +7,12 @@ import myboot.app1.model.CV;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value="/api")
@@ -19,6 +21,8 @@ public class ActivityRestController {
     @Autowired
     ActivityRepository AR;
 
+    @Autowired
+    LocalValidatorFactoryBean validationFactory;
 
     /**
      * Affiche la liste des activities
@@ -36,6 +40,7 @@ public class ActivityRestController {
 
     @GetMapping("/activity/{id}")
     public Activity getActivity(@PathVariable int id) {
+
         return AR.findById(id).get();
     }
 
@@ -73,13 +78,15 @@ public class ActivityRestController {
      * Mettre à jour une activité
      */
 
-    @PutMapping("/updateActivity")
-    public ResponseEntity<Activity> updateActivity (@RequestBody Activity activity){
-
-        if(activity == null) throw  new ResponseStatusException(HttpStatus.NO_CONTENT,"Activities missed !");
-        else {
-            return new ResponseEntity(AR.save(activity), HttpStatus.OK);
+    @PutMapping("/updateActivity/{id}")
+    public void putActivity(Activity activity, @PathVariable int id) throws Exception {
+        Optional<Activity> a = AR.findById(id);
+        if (a.isPresent()){
+            AR.save(activity);
+        }else {
+            throw new Exception("Activity Not Found");
         }
+
 
     }
 }

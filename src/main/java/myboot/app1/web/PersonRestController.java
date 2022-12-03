@@ -1,7 +1,9 @@
 package myboot.app1.web;
 
 
+import myboot.app1.dao.CurriculumeVitaeRepository;
 import myboot.app1.dao.PersonRepository;
+import myboot.app1.model.CV;
 import myboot.app1.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,9 @@ public class PersonRestController {
 
     @Autowired
     PersonRepository PR;
+
+    @Autowired
+    CurriculumeVitaeRepository CR;
 
 
     /**
@@ -35,7 +40,7 @@ public class PersonRestController {
      * @return la personnes dont l'id est en parametre
      */
 
-    @GetMapping("/showPerson/{id}")
+    @GetMapping("/person/{id}")
     public Person getPerson(@PathVariable int id) {
         return PR.findById(id).get();
     }
@@ -64,9 +69,13 @@ public class PersonRestController {
      */
 
     @PostMapping("/newPerson")
-    public Person postPerson(@RequestBody @Valid Person p) {
+    public String postPerson(@RequestBody @Valid Person p) {
         PR.save(p);
-        return p;
+        CV cv = new CV();
+        cv.setPerson(p);
+        CR.save(cv);
+
+        return "redirect:/persons";
     }
 
 
@@ -75,7 +84,7 @@ public class PersonRestController {
      */
 
     @PutMapping("/updatePerson")
-    public ResponseEntity<Person> updatePerson (@RequestBody Person p){
+    public ResponseEntity<Person> updatePerson (@RequestBody @Valid Person p){
 
         if(p.getFirstName()==null) throw  new ResponseStatusException(HttpStatus.NOT_FOUND,"Firstname missed !");
         if(p.getLastName()==null)  throw  new ResponseStatusException(HttpStatus.NOT_FOUND,"Lastname missed !");

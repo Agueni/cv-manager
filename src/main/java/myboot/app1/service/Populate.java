@@ -42,19 +42,25 @@ public class Populate {
         CR.save(cv3);
 
 
-        Person p1= new Person("katia","HALLAI","katia.hallai@gmail.com"," ","4/10/1996","halkati",cv1);
-        Person p2 = new Person("agueni", "farouk", "farouk@gmail.com", " ", "06/12/1999", "123",cv2);
-        Person p3= new Person(" jean-luc","MASSAT","jl.massat@gmail.Com"," "," 01/01/2000","jlmassat",cv3);
-        Person p4= new Person(" pierre","DUPONT","pierre.dupont@gmail.Com"," ","12/12/2000 ","pierredupont",cv1);
+        Person p1= new Person("katia","HALLAI","katia.hallai@etu.univ-amu.fr","http://hallaikatia.com ","4/10/1996","halkati",cv1);
+        Person p2 = new Person("farouk", "AGUENI", "farouk.agueni@etu.univ-amu.fr", "http://hallaikatia.com  ", "06/12/1999", "123",cv2);
+        Person p3= new Person(" jean-luc","MASSAT","jl.massat@etu.univ-amu.fr","https://jean-luc-massat.pedaweb.univ-amu.fr/ens/arch-app/index.html "," 01/01/2000","jlmassat",cv3);
+        Person p4= new Person(" pierre","DUPONT","pierre.dupont@gmail.Com","http://pierredupont.com  ","12/12/2000 ","pierredupont",cv1);
 
         PR.save(p1);
         PR.save(p2);
         PR.save(p3);
         PR.save(p4);
 
-        Activity a1 = new Activity(2022,FORMATION, "M2 IDL","formation intéresante","https://formations.univ-amu.fr/fr/master/5SIN");
-        Activity a2 = new Activity(2018,EXPERIENCEPROFESSIONNELLE, "Babysitter"," "," ");
-        Activity a3=  new Activity(2021,PROJETS, "JEE/SPRING"," "," ");
+
+        CR.save(cv1);
+        CR.save(cv2);
+        CR.save(cv3);
+
+
+        Activity a1 = new Activity(2022,FORMATION, "M2 IDL","Formation proposée par Aix-Marseille Université","https://formations.univ-amu.fr/fr/master/5SIN");
+        Activity a2 = new Activity(2018,EXPERIENCEPROFESSIONNELLE, "Babysitter","Accompagner l'enfant aprés la sortie scolaire "," https://Nounoutop.com");
+        Activity a3=  new Activity(2021,PROJETS, "JEE/SPRING"," Son objectif était la conception d'un annuaire de personnes"," https://annuaire.com");
 
         AR.save(a1);
         AR.save(a2);

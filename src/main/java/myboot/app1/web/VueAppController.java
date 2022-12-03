@@ -23,4 +23,17 @@ public class VueAppController {
     private ModelAndView getCvs() {
         return new ModelAndView("cvs");
     }
+
+    @RequestMapping(value = "/create-person")
+    private ModelAndView createPerson() {
+
+        return new ModelAndView("create-person");
+    }
+
+    @RequestMapping(value = "/edit-activity")
+    private ModelAndView editActivity() {
+
+        return new ModelAndView("edit-activity");
+    }
+
 }

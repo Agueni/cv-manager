@@ -12,6 +12,7 @@
 
 				<a class="navbar-brand" href="/persons"> Consulter la liste des personnes </a>
 				<a class="navbar-brand" href="/cvs"> Consulter la liste des CVs </a>
+				<a class="navbar-brand" href="/create-person"> Creer une nouvelle personne </a>
 				<a class="navbar-brand" href="/login">Se connecter </a>
 
 		</nav>

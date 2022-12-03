@@ -1,6 +1,7 @@
 package myboot.app1.test;
 
 import myboot.app1.dao.PersonRepository;
+import myboot.app1.model.CV;
 import myboot.app1.model.Person;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class TestPersonRepository {
     @Test
 
     public void testCreatePerson() {
-        var p = r.save(new Person("agueni", "farouk", "farouk@gmail.com", "https://formations.univ-amu.fr/fr/master/5SIN", "06/12/1999", "123"));
+        var p = r.save(new Person("agueni", "farouk", "farouk@gmail.com", "https://formations.univ-amu.fr/fr/master/5SIN", "06/12/1999", "123",new CV()));
         var p1 = r.findById(p.getId()).get();
 
         assertEquals(p1.getFirstName(), "agueni");
@@ -28,7 +29,7 @@ public class TestPersonRepository {
 
     @Test
     public void testReadPerson() {
-        var p = r.save(new Person("agueni", "farouk", "farouk@gmail.com", "https://formations.univ-amu.fr/fr/master/5SIN", "06/12/1999", "123"));
+        var p = r.save(new Person("agueni", "farouk", "farouk@gmail.com", "https://formations.univ-amu.fr/fr/master/5SIN", "06/12/1999", "123",new CV()));
         var expected = r.findById(p.getId()).get();
 
         assertEquals(p.getFirstName(), expected.getFirstName());
@@ -36,7 +37,7 @@ public class TestPersonRepository {
 
     @Test
     public void testUpdatePerson() {
-        Person p = new Person("agueni", "farouk", "farouk@gmail.com", "https://formations.univ-amu.fr/fr/master/5SIN", "06/12/1999", "123");
+        Person p = new Person("agueni", "farouk", "farouk@gmail.com", "https://formations.univ-amu.fr/fr/master/5SIN", "06/12/1999", "123",new CV());
 
         r.save(p);
         p.setFirstName("Hallai");
@@ -47,7 +48,7 @@ public class TestPersonRepository {
 
     @Test
     public void testDeletePerson() {
-        Person p = new Person("agueni", "farouk", "farouk@gmail.com", "https://formations.univ-amu.fr/fr/master/5SIN", "06/12/1999", "123");
+        Person p = new Person("agueni", "farouk", "farouk@gmail.com", "https://formations.univ-amu.fr/fr/master/5SIN", "06/12/1999", "123",new CV());
 
         r.save(p);
         Person expected = r.save(p);

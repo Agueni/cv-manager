@@ -6,8 +6,17 @@ const myApp = {
         return {
             cvs: [],
             cv : null,
+            activity: null,
+            person:null,
+            firstName:"",
+            lastName:"",
+            birthday:"",
+            email:"",
+            webSite:"",
+            editable:null,
             activities: [],
             persons: [],
+            errors:[],
             axios: null,
             router:null
         }
@@ -26,6 +35,11 @@ const myApp = {
         this.getListOfPerson();
         this.getCvActivities();
         this.getListeOfCV();
+        this.getActivityDetails();
+        console.log(this.editable);
+        this.getPersonDetails();
+
+
 
     },
 
@@ -55,6 +69,20 @@ const myApp = {
                 .then(rep => {
                     console.log("show cv" + id + " done");
                     this.cv = rep.data;
+
+                });
+        },
+
+        getActivityDetails: function (id) {
+
+            console.log(id);
+            this.axios.get("activity/" + id)
+
+                .then(rep => {
+                    console.log("show activity" + id + " done");
+                    this.editable= rep.data;
+                    console.log(this.editable);
+
                 });
         },
 
@@ -64,7 +92,62 @@ const myApp = {
                     console.log("get list of person done !")
                     this.persons=rep.data;
                 })
-        }
+        },
+
+        editActivity: function (editable){
+
+            let data = {
+                id:editable.id,
+                year: editable.year,
+                nature:editable.nature,
+                description:editable.description,
+                webSite:editable.webSite
+            };
+
+            this.axios.put("updateActivity/"+ editable.id,data)
+
+                .then(rep=> {
+                    console.log("update activity done !")
+                    this.errors=rep.data;
+                    if(Object.keys(this.errors).length==0){
+                      this.getActivities();
+                    }
+
+                })
+
+        },
+
+
+        getPersonDetails: function (id) {
+            this.axios.get("person/" + id)
+                .then(rep => {
+                    console.log("show person" + id + " done");
+                    this.person = rep.data;
+
+                });
+        },
+
+
+        createPerson: function (e){
+            e.preventDefault();
+
+            this.axios.post("newPerson", {
+                firstName: this.firstName,
+                lastName: this.lastName,
+                birthday: this.birthday,
+                email: this.email,
+                webSite: this.webSite
+            })
+                .then(r=> {
+                    console.log("person created !")
+                })
+
+                .catch(error => {
+                        this.errors = error.message;
+                        console.error("There was an error!", error);
+                    });
+
+        },
     }
 }
 

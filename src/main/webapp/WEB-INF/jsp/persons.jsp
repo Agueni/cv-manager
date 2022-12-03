@@ -21,7 +21,7 @@
                 <th>Nom</th>
                 <th>Email</th>
                 <th>Site Web</th>
-                <th>birthday</th>
+                <th>Anniversaire</th>
             </tr>
             <tr v-for="person in persons">
                 <td>{{person.firstName}}</td>
@@ -32,7 +32,12 @@
             </tr>
         </table>
 
+        <div>
+            <a class="btn btn-primary btn-sm" href="app">Retour</a>
+        </div>
+
     </div>
+
 </div>
 
 <script src="${app}"></script>
