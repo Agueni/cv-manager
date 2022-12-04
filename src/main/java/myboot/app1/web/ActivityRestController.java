@@ -78,9 +78,9 @@ public class ActivityRestController {
      * Mettre à jour une activité
      */
 
-    @PutMapping("/updateActivity/{id}")
-    public void putActivity(Activity activity, @PathVariable int id) throws Exception {
-        Optional<Activity> a = AR.findById(id);
+    @PutMapping("/updateActivity")
+    public void putActivity(Activity activity) throws Exception {
+        Optional<Activity> a = AR.findById(activity.getId());
         if (a.isPresent()){
             AR.save(activity);
         }else {

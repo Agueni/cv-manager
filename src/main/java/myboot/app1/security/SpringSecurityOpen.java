@@ -1,3 +1,5 @@
+
+
 package myboot.app1.security;
 
 import org.springframework.context.annotation.Profile;
@@ -11,12 +13,12 @@ import org.springframework.stereotype.Component;
 @Profile("open")
 public class SpringSecurityOpen extends WebSecurityConfigurerAdapter {
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http//
-				.csrf().disable()//
-				.authorizeRequests()//
-				.anyRequest().permitAll();
-	}
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http//
+                .csrf().disable()//
+                .authorizeRequests()//
+                .anyRequest().permitAll();
+    }
 
 }

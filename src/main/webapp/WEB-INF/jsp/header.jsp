@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
+
 <c:url var="bootstrap_css"
 	value="/webjars/bootstrap/4.6.0-1/css/bootstrap.min.css" />
 <c:url var="bootstrap_js"

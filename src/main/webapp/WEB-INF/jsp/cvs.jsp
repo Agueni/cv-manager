@@ -16,23 +16,37 @@
 <div id="myApp">
     <div class="container">
 
-        <h1>La liste des CVs</h1>
+        <h1> Gestion de CVs </h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-        <table class="table">
-            <tr>
-                <th>id</th>
-                <th>Action</th>
-            </tr>
+            <a class="navbar-brand" href="/persons"> Consulter la liste des personnes </a>
+            <a class="navbar-brand" href="/cvs"> Consulter la liste des CVs </a>
+            <a class="navbar-brand" href="/create-person"> Creer une nouvelle personnes </a>
+            <a class="navbar-brand" href="/login">Se connecter </a>
 
-            <tr v-for="cv in cvs">
-                <td> {{cv.id}}</td>
-                <td><button v-on:click="getCvActivities(cv.id)"> Visualiser </button></td>
-             </tr>
-        </table>
+        </nav>
+        <div>
+            <h2>La liste des CVs</h2>
+
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr v-for="cv in cvs">
+                    <td> {{cv.id}}</td>
+                    <td><button v-on:click="getCvActivities(cv.id)"> Visualiser </button></td>
+                </tr>
+            </table>
+
+
+        </div>
+
 
         <div v-if="(cv != null)">
 
-            <h1>Liste des activites</h1>
+            <h3>Liste des activites</h3>
             <table class="table">
                 <tr>
                     <th>Annee</th>

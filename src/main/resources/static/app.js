@@ -104,13 +104,18 @@ const myApp = {
                 webSite:editable.webSite
             };
 
-            this.axios.put("updateActivity/"+ editable.id,data)
+            this.axios.put("updateActivity",data)
 
                 .then(rep=> {
                     console.log("update activity done !")
+                    console.log(rep.data);
                     this.errors=rep.data;
                     if(Object.keys(this.errors).length==0){
-                      this.getActivities();
+
+                        this.getActivityDetails(editable.id);
+                        this.getActivities();
+                        console.log(rep.data);
+                        window.location.href("cvs");
                     }
 
                 })
@@ -146,6 +151,12 @@ const myApp = {
                         this.errors = error.message;
                         console.error("There was an error!", error);
                     });
+
+        },
+
+        userAuthentification: function (){
+
+
 
         },
     }

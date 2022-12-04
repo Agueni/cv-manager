@@ -17,7 +17,6 @@ import org.springframework.web.util.UrlPathHelper;
 
 import myboot.Starter;
 
-@Configuration
 public class SpringConfiguration extends SpringBootServletInitializer implements WebMvcConfigurer {
 
 	@Override
