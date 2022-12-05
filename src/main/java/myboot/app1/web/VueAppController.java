@@ -30,6 +30,12 @@ public class VueAppController {
         return new ModelAndView("create-person");
     }
 
+    @RequestMapping(value = "/create-activity")
+    private ModelAndView createActivity() {
+
+        return new ModelAndView("create-activity");
+    }
+
     @RequestMapping(value = "/login")
     private ModelAndView logIn() {
 

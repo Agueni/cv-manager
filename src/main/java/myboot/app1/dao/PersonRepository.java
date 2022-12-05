@@ -9,5 +9,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface PersonRepository extends JpaRepository<Person,Integer> {
 
+    boolean existsByEmail(String username);
+
+    void deleteByEmail(String username);
+
+    Person findByEmail(String username);
 
 }

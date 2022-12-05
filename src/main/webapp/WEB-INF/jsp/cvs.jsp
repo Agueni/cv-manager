@@ -15,9 +15,8 @@
 
 <div id="myApp">
     <div class="container">
-
-        <h1> Gestion de CVs </h1>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <img src="img/img.png" class="logo img-thumbnail rounded-circle" alt="logo"></img>
 
             <a class="navbar-brand" href="/persons"> Consulter la liste des personnes </a>
             <a class="navbar-brand" href="/cvs"> Consulter la liste des CVs </a>
@@ -26,27 +25,29 @@
 
         </nav>
         <div>
-            <h2>La liste des CVs</h2>
+
+            <h2>Liste des CVs </h2>
 
             <table class="table">
                 <tr>
                     <th>id</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                 </tr>
 
                 <tr v-for="cv in cvs">
                     <td> {{cv.id}}</td>
-                    <td><button v-on:click="getCvActivities(cv.id)"> Visualiser </button></td>
+                    <td><button v-on:click="getCvActivities(cv.id)"> Afficher  </button></td>
+                    <td><a class="btn btn-primary btn-sm" href="create-activity"> Ajouter une activite </a></td>
+
                 </tr>
             </table>
 
 
         </div>
 
-
         <div v-if="(cv != null)">
 
-            <h3>Liste des activites</h3>
+            <h2>Liste des activites</h2>
             <table class="table">
                 <tr>
                     <th>Annee</th>
@@ -54,16 +55,17 @@
                     <th>Titre</th>
                     <th>Description</th>
                     <th>Site</th>
-                    <th>Action</th>
+                    <th>Actions</th>
 
                 </tr>
                 <tr v-for="activity in cv.activities">
                     <td>{{activity.year}}</td>
-                    <td>{{activity.nature}}</td>
+                    <td>{{activity.activityNature}}</td>
                     <td>{{activity.title}}</td>
                     <td>{{activity.description}}</td>
-                    <td>{{activity.website}}</td>
+                    <td>{{activity.webSite}}</td>
                     <td><button v-on:click="getActivityDetails(activity.id)"> Modifier </button></td>
+
 
                     <div v-if="(editable != null)">
 
@@ -71,23 +73,28 @@
 
                             <div class="form-group">
                                 <label> Annee :</label>
-                                <input v-model="editable.year" class="form-control"
-                                       v-bind:class="{'is-invalid':errors.year}" number />
+                                <input type="date" v-model="editable.year" class="form-control"
+                                       v-bind:class="{'is-invalid':errors.year}"  />
                                 <div v-if="(errors.year)" class="alert alert-warning">
                                     {{errors.year}}
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label>Nature :</label>
-                                <input v-model="editable.nature" class="form-control"
-                                       v-bind:class="{'is-invalid':errors.nature}" />
-                                <div v-if="(errors.nature)" class="alert alert-warning">
-                                    {{errors.nature}}
-                                </div>
+                                <label> Nature : </label>
+                                <select  v-model="editable.activityNature"   class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                    <option selected> Veuillez selectionner la nature  </option>
+                                    <option  value="EXPERIENCE">EXPERIENCE</option>
+                                    <option  value="FORMATION">FORMATION</option>
+                                    <option  value="PROJET">PROJET</option>
+                                    <option  value="AUTRE">AUTRE</option>
+                                </select>
                             </div>
+
+
                             <div class="form-group">
                                 <label>Titre :</label>
-                                <input v-model="editable.title" class="form-control"
+                                <input type="text" v-model="editable.title" class="form-control"
                                        v-bind:class="{'is-invalid':errors.title}" />
                                 <div v-if="(errors.title)" class="alert alert-warning">
                                     {{errors.title}}
@@ -102,7 +109,7 @@
 
                             <div class="form-group">
                                 <label>Site Web :</label>
-                                <input v-model="editable.webSite" class="form-control"
+                                <input type="url" v-model="editable.webSite" class="form-control"
                                        v-bind:class="{'is-invalid':errors.webSite}" />
                                 <div v-if="(errors.webSite)" class="alert alert-warning">
                                     {{errors.webSite}}
@@ -111,8 +118,7 @@
 
                             <div class="form-group">
                                 <button v-on:click.prevent="editActivity(editable)" class="btn btn-primary">Sauvegarder </button>
-                                <button v-on:click="getActivities()" class="btn btn-primary">
-                                    Annuler </button>
+                                <button v-on:click="getActivities()" class="btn btn-primary">Annuler </button>
                             </div>
                         </form>
                     </div>

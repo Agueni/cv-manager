@@ -64,6 +64,7 @@ public class ActivityRestController {
 
     }
 
+
     /**
      * Ajoute une nouvelle activité
      */

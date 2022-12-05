@@ -7,7 +7,7 @@
 <div class="container">
 	<h1>Modification de l'activite </h1>
 
-	<div v-if="(editable != null)">
+	<div >
 
 		<form id="app" method="post" novalidate="true">
 
@@ -52,9 +52,8 @@
 			</div>
 
 			<div class="form-group">
-				<button v-on:click.prevent="editActivity(editable)" class="btn btn-primary">Sauvegarder </button>
-				<button v-on:click="getActivities()" class="btn btn-primary">
-					Annuler </button>
+				<button v-on:click.prevent="" class="btn btn-primary">Sauvegarder </button>
+				<button v-on:click="" class="btn btn-primary"> Annuler </button>
 			</div>
 		</form>
 	</div>

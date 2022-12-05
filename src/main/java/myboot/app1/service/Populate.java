@@ -44,13 +44,13 @@ public class Populate {
 
         Person p1= new Person("katia","HALLAI","katia.hallai@etu.univ-amu.fr","http://hallaikatia.com ","4/10/1996","halkati",cv1);
         Person p2 = new Person("farouk", "AGUENI", "farouk.agueni@etu.univ-amu.fr", "http://hallaikatia.com  ", "06/12/1999", "123",cv2);
-        Person p3= new Person(" jean-luc","MASSAT","jl.massat@etu.univ-amu.fr","https://jean-luc-massat.pedaweb.univ-amu.fr/ens/arch-app/index.html "," 01/01/2000","jlmassat",cv3);
-        Person p4= new Person(" pierre","DUPONT","pierre.dupont@gmail.Com","http://pierredupont.com  ","12/12/2000 ","pierredupont",cv1);
+        Person p3= new Person(" jean-luc","MASSAT","jean-luc.massat@univ-amu.fr","https://jean-luc-massat.pedaweb.univ-amu.fr/ens/arch-app/index.html "," 01/01/2000","jlmassat",cv3);
+
 
         PR.save(p1);
         PR.save(p2);
         PR.save(p3);
-        PR.save(p4);
+
 
 
         CR.save(cv1);
@@ -72,9 +72,13 @@ public class Populate {
         cv3.getActivities().add(a3);
 
 
+
+
         CR.save(cv1);
         CR.save(cv2);
         CR.save(cv3);
+
+
 
 
 

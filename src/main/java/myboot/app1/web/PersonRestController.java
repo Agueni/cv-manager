@@ -5,6 +5,8 @@ import myboot.app1.dao.CurriculumeVitaeRepository;
 import myboot.app1.dao.PersonRepository;
 import myboot.app1.model.CV;
 import myboot.app1.model.Person;
+import myboot.app1.model.PersonDTO;
+import myboot.app1.security.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,9 @@ public class PersonRestController {
     @Autowired
     CurriculumeVitaeRepository CR;
 
+    @Autowired
+    UserService userService;
+
 
     /**
      *
@@ -33,6 +38,8 @@ public class PersonRestController {
     public Iterable<Person> getPersons() {
         return PR.findAll();
     }
+
+
 
     /**
      *

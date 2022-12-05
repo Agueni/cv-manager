@@ -7,8 +7,8 @@
 
 <div id="myApp">
 	<div class="container">
-		<h1> Gestion de CVs </h1>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<img src="img/img.png" class="logo img-thumbnail rounded-circle" alt="logo"></img>
 
 				<a class="navbar-brand" href="/persons"> Consulter la liste des personnes </a>
 				<a class="navbar-brand" href="/cvs"> Consulter la liste des CVs </a>
@@ -16,7 +16,6 @@
 				<a class="navbar-brand" href="/login">Se connecter </a>
 
 		</nav>
-
 
 	</div>
 </div>

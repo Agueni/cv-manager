@@ -4,6 +4,8 @@ package myboot.app1.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -42,7 +44,11 @@ public class Person {
 	String password;
 
 	@OneToOne(targetEntity=CV.class,cascade={CascadeType.MERGE},orphanRemoval=true)
+	@JoinColumn(name="person_cv")
 	CV cv;
+
+	@ElementCollection(fetch = FetchType.EAGER)
+	List<String> roles;
 
 
 	public Person(String firstName, String lastName, String email, String webSite, String birthday, String password, CV cv) {

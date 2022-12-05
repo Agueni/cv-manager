@@ -9,14 +9,13 @@
 
 <%@ include file="/WEB-INF/jsp/header.jsp"%>
 <c:url var="home" value="/aaa" />
-<c:url var="app" value="/app.js" />
+<c:url var="login" value="/login.js" />
 
 
-<div id="myApp">
+<div id="login">
     <div class="container">
-        <h1> Gestion de CVs </h1>
-
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <img src="img/img.png" class="logo img-thumbnail rounded-circle" alt="logo"></img>
 
             <a class="navbar-brand" href="/persons"> Consulter la liste des personnes </a>
             <a class="navbar-brand" href="/cvs"> Consulter la liste des CVs </a>
@@ -27,25 +26,28 @@
 
         <h2>Connexion</h2>
 
-        <form @submit="userAuthentification" >
+        <form @submit="handleSubmit" >
 
             <div class="form-group">
 
-                <label>Username :</label>
-                <input path="userName" class="form-control" v-model="userName"cssErrorClass="form-control is-invalid" />
+                <label>Email :</label>
+                <input type="email" class="form-control" v-model="mail"  placeholder="Email" />
             </div>
+
             <div class="form-group">
                 <label>Password :</label>
-                <input path="password" class="form-control" v-model="password" cssErrorClass="form-control is-invalid" />
+                <input type="password" class="form-control" v-model="password"  placeholder="Password" />
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-sm">Enregister</button>
+                <button type="submit" class="btn btn-primary btn-sm"> Valider</button>
             </div>
         </form>
     </div>
 </div>
 
-<script src="${app}"></script>
+<script src="${login}"></script>
+
+
 
 <%@ include file="/WEB-INF/jsp/footer.jsp"%>

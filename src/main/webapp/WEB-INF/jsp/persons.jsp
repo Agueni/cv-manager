@@ -13,7 +13,19 @@
 
 <div id="myApp">
     <div class="container">
-        <h1>Liste des personnes </h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <img src="img/img.png" class="logo img-thumbnail rounded-circle" alt="logo"></img>
+
+            <a class="navbar-brand" href="/persons"> Consulter la liste des personnes </a>
+            <a class="navbar-brand" href="/cvs"> Consulter la liste des CVs </a>
+            <a class="navbar-brand" href="/create-person"> Creer une nouvelle personne </a>
+            <a class="navbar-brand" href="/login">Se connecter </a>
+
+        </nav>
+
+    </div>
+    <div class="container">
+        <h2>Liste des personnes </h2>
 
         <table class="table">
             <tr>
@@ -33,7 +45,7 @@
         </table>
 
         <div>
-            <a class="btn btn-primary btn-sm" href="app">Retour</a>
+            <a class="btn btn-primary btn-sm" href="app"> Retour </a>
         </div>
 
     </div>

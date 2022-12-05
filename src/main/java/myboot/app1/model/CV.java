@@ -20,7 +20,7 @@ public class CV {
 
 
    //@ElementCollection(fetch = FetchType.EAGER)
-   @OneToMany(fetch=FetchType.EAGER)
+   @OneToMany(fetch=FetchType.LAZY)
    private List<Activity> activities = new ArrayList<>();
 
     @OneToOne(targetEntity=Person.class)

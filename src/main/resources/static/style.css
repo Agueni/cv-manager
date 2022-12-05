@@ -1,1 +1,142 @@
-h1 { color: blue; }
+*{
+    box-sizing: border-box;
+}
+.container{
+    background-color: white;
+}
+/* Add a black background color to the top navigation */
+.bg-light {
+    background-color: #333!important;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+    float: left;
+    color: #333333;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+element.style {
+}
+.navbar-light .navbar-brand{
+    color: white;
+}
+a.navbar-brand{
+    font-size: 19px;
+    font-family: 'Ubuntu';
+
+
+}
+.table th{
+    float: contour;
+    color: #333333;
+    text-align: center;
+    color: snow;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+}
+.table td{
+    text-align: center;
+}
+
+button.btn.btn-primary{
+    background-color: grey;
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+    width: 200px;
+    border-color: grey;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light{
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+
+}
+
+
+    /* Change the color of links on hover */
+.navbar a:hover {
+    background-color: wheat;
+
+}
+
+.table{
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+
+button{
+    background-color: #3f87a6;
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+    width: 200px;
+    border-color: #3f87a6;
+}
+
+button, input{
+    background-color: #3f87a6;
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+    width: 200px;
+    border-color: #3f87a6;
+
+}
+
+img{
+    width:5vh;
+    height: 5vh;
+    margin: 0 auto;
+    padding: 0.25rem;
+    border-radius: 30%;
+    box-shadow: -10px -10px 20px #b8b7b7, 10px 10px 20px #0000004b;
+    background-color: #000;
+}
+
+h1 {
+    color:#046019 ;
+}
+h2{
+    color: #046019;
+    text-align:center;
+
+
+}
+
+input.form-control{
+
+    background: linear-gradient(0.25turn, #ebf8e1, #f69d3c);
+
+}
+*{
+    font-family: 'Ubuntu';
+    font-size: 15px;
+    line-height: 1.5;
+
+}
+button.btn.btn-primary.btn-sm{
+    background-color: #04AA6D;
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+    width: 200px;
+    border-color: #04AA6D;
+
+}
+a.btn.btn-primary.btn-sm{
+    background-color: #f69d3c;
+    color: white;
+    border-radius: 25px;
+    font-size: 18px;
+    width: 200px;
+    border-color: #f69d3c;
+}
+
+
+

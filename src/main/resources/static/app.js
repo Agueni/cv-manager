@@ -18,7 +18,7 @@ const myApp = {
             persons: [],
             errors:[],
             axios: null,
-            router:null
+            newActivity:{},
         }
     },
 
@@ -36,7 +36,6 @@ const myApp = {
         this.getCvActivities();
         this.getListeOfCV();
         this.getActivityDetails();
-        console.log(this.editable);
         this.getPersonDetails();
 
 
@@ -154,11 +153,38 @@ const myApp = {
 
         },
 
-        userAuthentification: function (){
+        getData() {
+            this.axios.get("activities").then((res)=>{
+                console.warn(res)
+                this.activities=res.data
+            })
+        },
+
+        deleteActivity(id){
+            this.axios.delete("deleteActivity/"+id).then((res)=>{
+                this.getData();
+            })
+
+        },
+
+        createActivity: function (newActivity){
+
+
+            this.axios.post("newActivity", newActivity)
+                console.log(newActivity)
+                .then(err=> {
+                    this.errors = err.data;
+                })
+
 
 
 
         },
+
+
+
+
+
     }
 }
 
